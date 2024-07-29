@@ -1,4 +1,4 @@
-import Papa from 'papaparse';
+import * as Papa from 'papaparse';
 import { DataEntry } from "../models/csv.model";
 
 // Función para analizar el archivo CSV y retornar los datos como una promesa
