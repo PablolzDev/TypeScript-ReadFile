@@ -1,33 +1,72 @@
-# CSV Reader
+# Proyecto de Visualización de CSV
 
-## Descripción
-
-Este proyecto es un lector de archivos CSV diseñado para visualizar y buscar datos sobre departamentos y regiones de Antioquia. Utiliza la librería [PapaParse](https://www.papaparse.com/) para procesar archivos CSV y proporciona una interfaz web para interactuar con los datos.
+Este proyecto permite cargar un archivo CSV y mostrar su contenido en una tabla interactiva. Además, incluye una barra de búsqueda para filtrar los datos y paginación para una mejor navegación.
 
 ## Características
 
-- **Carga de Archivos CSV**: Permite a los usuarios cargar archivos CSV.
-- **Visualización de Datos**: Muestra los datos en una tabla HTML.
-- **Búsqueda en Columnas**: Ofrece la capacidad de buscar información específica en cada columna.
-- **Paginación**: Muestra los datos en páginas para facilitar la navegación.
+- **Carga de CSV**: Permite al usuario cargar un archivo CSV.
+- **Visualización en Tabla**: Muestra el contenido del CSV en una tabla.
+- **Barra de Búsqueda**: Filtra los datos en la tabla según las coincidencias.
+- **Paginación**: Navega a través de los datos en la tabla de manera paginada.
+- **Uso de PapaParse**: Utiliza PapaParse para convertir el archivo CSV (usando CDN).
+
+## Tecnologías Utilizadas
+
+- **HTML/CSS/JavaScript**: Estructura y estilo de la aplicación.
+- **PapaParse**: Librería para parsear archivos CSV.
+- **CDN**: Uso de PapaParse a través de CDN.
 
 ## Instalación
 
-Para utilizar este proyecto, sigue estos pasos:
+1. Clona el repositorio:
+    ```bash
+    git clone https://github.com/PablolzDev/TypeScript-ReadFile.git
+    ```
+2. Navega al directorio del proyecto:
+    ```bash
+    cd tu-repositorio
+    ```
+3. Abre `index.html` en tu navegador.
 
-### 1. Clona el Repositorio
+## Uso
 
-Clona el repositorio a tu máquina local:
+1. Carga un archivo CSV usando el botón de carga.
+2. El contenido del archivo se mostrará en una tabla.
+3. Usa la barra de búsqueda para filtrar los datos.
+4. Navega a través de las páginas de la tabla usando los controles de paginación.
 
-```bash
-https://github.com/PablolzDev/TypeScript-ReadFile.git
-´´´
+## Ejemplo de Código
 
-## Instalación
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Visualización de CSV</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+</head>
+<body>
+    <input type="file" id="csvFileInput" accept=".csv" />
+    <input type="text" id="searchInput" placeholder="Buscar..." />
+    <table id="dataTable">
+        <!-- Contenido de la tabla -->
+    </table>
+    <div id="paginationControls">
+        <!-- Controles de paginación -->
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
 
-### 2. Instala Dependencias
-Instala las dependencias necesarias para el proyecto. Este proyecto utiliza PapaParse para el procesamiento de archivos CSV. Asegúrate de tener Node.js instalado en tu sistema.
 
-```bash
-npm install
+
+
+
+
+
+
+
+
+
+
 
