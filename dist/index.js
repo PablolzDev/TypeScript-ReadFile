@@ -7,6 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+import { filterDataBySearchTerm } from './controllers/search.controller.js'; // Ajusta la ruta según tu estructura
 import { processCSVFile } from "./controllers/csv.controller.js";
 // Variables globales
 let dataEntries = [];
@@ -107,7 +108,8 @@ const handleFileUpload = (event) => __awaiter(void 0, void 0, void 0, function* 
 // Función para manejar la búsqueda en la tabla
 const handleDataSearch = (event) => {
     const searchTerm = event.target.value.toLowerCase();
-    filteredEntries = dataEntries.filter((entry) => Object.values(entry).some((value) => value.toLowerCase().includes(searchTerm)));
+    filteredEntries = filterDataBySearchTerm(dataEntries, searchTerm);
+    // Reiniciar el número de la página y actualizar la tabla y paginación
     currentPageNumber = 1;
     updateTableDisplay();
     updatePaginationDisplay();

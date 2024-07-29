@@ -1,3 +1,4 @@
+import { filterDataBySearchTerm } from './controllers/search.controller.js';  // Ajusta la ruta según tu estructura
 import * as Papa from 'papaparse';
 import { DataEntry } from "../src/models/csv.model";
 import { processCSVFile } from "./controllers/csv.controller.js";
@@ -113,9 +114,9 @@ const handleFileUpload = async (event: Event) => {
 // Función para manejar la búsqueda en la tabla
 const handleDataSearch = (event: Event) => {
     const searchTerm = (event.target as HTMLInputElement).value.toLowerCase();
-    filteredEntries = dataEntries.filter((entry) =>
-        Object.values(entry).some((value) => value.toLowerCase().includes(searchTerm))
-    );
+    filteredEntries = filterDataBySearchTerm(dataEntries, searchTerm);
+
+    // Reiniciar el número de la página y actualizar la tabla y paginación
     currentPageNumber = 1;
     updateTableDisplay();
     updatePaginationDisplay();
