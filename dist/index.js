@@ -7,7 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { processCSVFile } from "../src/controllers/csv.controller";
+import { processCSVFile } from "./controllers/csv.controller.js";
 // Variables globales
 let dataEntries = [];
 let filteredEntries = [];
@@ -48,15 +48,33 @@ const updateTableDisplay = () => {
 const updatePaginationDisplay = () => {
     paginationContainer.innerHTML = '';
     const totalPages = Math.ceil(filteredEntries.length / entriesPerPage);
-    for (let i = 1; i <= totalPages; i++) {
-        const button = document.createElement('button');
-        button.textContent = i.toString();
-        button.disabled = i === currentPageNumber;
-        button.addEventListener('click', () => {
-            currentPageNumber = i;
-            updateTableDisplay();
+    if (totalPages > 1) {
+        // Botón "Anterior"
+        const prevButton = document.createElement('button');
+        prevButton.textContent = 'Anterior';
+        prevButton.disabled = currentPageNumber === 1;
+        prevButton.className = 'px-4 py-2 bg-blue-500 text-white rounded-md disabled:bg-gray-400';
+        prevButton.addEventListener('click', () => {
+            if (currentPageNumber > 1) {
+                currentPageNumber--;
+                updateTableDisplay();
+                updatePaginationDisplay();
+            }
         });
-        paginationContainer.appendChild(button);
+        paginationContainer.appendChild(prevButton);
+        // Botón "Siguiente"
+        const nextButton = document.createElement('button');
+        nextButton.textContent = 'Siguiente';
+        nextButton.disabled = currentPageNumber === totalPages;
+        nextButton.className = 'px-4 py-2 bg-blue-500 text-white rounded-md disabled:bg-gray-400';
+        nextButton.addEventListener('click', () => {
+            if (currentPageNumber < totalPages) {
+                currentPageNumber++;
+                updateTableDisplay();
+                updatePaginationDisplay();
+            }
+        });
+        paginationContainer.appendChild(nextButton);
     }
 };
 // Función para manejar la carga del archivo

@@ -1,18 +1,19 @@
-import * as Papa from 'papaparse';
-import { DataEntry } from "../models/csv.model";
+declare const Papa: any;
+import { DataEntry } from "../models/csv.model.js";
 
-// Función para analizar el archivo CSV y retornar los datos como una promesa
+
+
 export const processCSVFile = (csvFile: File): Promise<DataEntry[]> => {
     return new Promise((resolvePromise, rejectPromise) => {
-        Papa.parse(csvFile, {
-            header: true, // Considera la primera fila como encabezados
-            skipEmptyLines: true, // Ignora las líneas en blanco
-            complete: (parseResults) => {
-                resolvePromise(parseResults.data as DataEntry[]); // Resuelve la promesa con los datos analizados
+        Papa.parse<DataEntry>(csvFile, {
+            header: true,
+            skipEmptyLines: true,
+            complete: (results: ParseResult<DataEntry>) => {
+                resolvePromise(results.data);
             },
-            error: (parseError) => {
-                rejectPromise(parseError); // Rechaza la promesa si ocurre un error
+            error: (error: Error) => {
+                rejectPromise(error);
             },
-        });
+        } as ParseConfig<DataEntry>);
     });
 };
