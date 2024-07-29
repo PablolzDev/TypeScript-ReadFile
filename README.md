@@ -12,19 +12,19 @@ Este proyecto permite cargar un archivo CSV y mostrar su contenido en una tabla 
 
 ## Tecnologías Utilizadas
 
-- **HTML/CSS/JavaScript**: Estructura y estilo de la aplicación.
+- **HTML/Tailwind/TypeScript**: Estructura y estilo de la aplicación.
 - **PapaParse**: Librería para parsear archivos CSV.
-- **CDN**: Uso de PapaParse a través de CDN.
+- **CDN**: Uso de PapaParse a través de CDN
+    ```bash
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    ```
+
 
 ## Instalación
 
 1. Clona el repositorio:
     ```bash
     git clone https://github.com/PablolzDev/TypeScript-ReadFile.git
-    ```
-2. Navega al directorio del proyecto:
-    ```bash
-    cd tu-repositorio
     ```
 3. Abre `index.html` en tu navegador.
 
@@ -34,32 +34,6 @@ Este proyecto permite cargar un archivo CSV y mostrar su contenido en una tabla 
 2. El contenido del archivo se mostrará en una tabla.
 3. Usa la barra de búsqueda para filtrar los datos.
 4. Navega a través de las páginas de la tabla usando los controles de paginación.
-
-## Ejemplo de Código
-
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Visualización de CSV</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-</head>
-<body>
-    <input type="file" id="csvFileInput" accept=".csv" />
-    <input type="text" id="searchInput" placeholder="Buscar..." />
-    <table id="dataTable">
-        <!-- Contenido de la tabla -->
-    </table>
-    <div id="paginationControls">
-        <!-- Controles de paginación -->
-    </div>
-    <script src="app.js"></script>
-</body>
-</html>
-
-
-
 
 
 
