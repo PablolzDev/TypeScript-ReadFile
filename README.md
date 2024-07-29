@@ -20,5 +20,4 @@ Para utilizar este proyecto, sigue estos pasos:
 Clona el repositorio a tu máquina local:
 
 ```bash
-git clone https://github.com/tu-usuario/tu-repositorio.git
-cd tu-repositorio
+https://github.com/PablolzDev/TypeScript-ReadFile.git
